@@ -1,0 +1,41 @@
+h1, h4{
+    text-align: center;
+    color: #080 !important;
+}
+.navbar {
+background-color: #008800 !important;
+border-color: #000000 !important;
+}
+
+.nav-link{
+    color: black !important;
+    text-transform: uppercase !important;
+}
+
+.list-group, .list-group-item {
+    background-color: #008800 !important;
+    border: 1px dashed black !important;
+}
+
+.row{
+    color: #080 !important;
+    border: 1px dashed #080 !important;
+}
+.tab-content .nav-link, .tab-content th, .tab-content td{
+    color: #008800 !important;
+}
+
+.searchForm{
+    width: 100% !important;
+    height: 100% !important;
+    padding: 2% !important;
+    border: 1px dashed #080 !important;
+    color: #080 !important;
+}
+
+.fieldWrapper{
+    padding: 2px;
+}
+
+
+

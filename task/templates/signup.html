@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    {% load staticfiles %}
+    <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                    <form method="POST" class="post-form" action = "/login/" > 
+                        <h2 align="center">Sign Up Form</h2>
+                        {% csrf_token %}  
+                        {{ form.non_field_errors }}
+                        <div class="fieldWrapper">
+                            {{ form.name.errors }}
+                            {{ form.name.label_tag }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            {{ form.name }}
+                        </div> 
+                        <div class="fieldWrapper">
+                            {{ form.email.errors }}
+                            {{ form.email.label_tag }}  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            {{ form.email }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.password.errors }}
+                            {{ form.password.label_tag }}  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            {{ form.password }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.confirm_password.errors }}
+                            {{ form.confirm_password.label_tag }}   &nbsp&nbsp
+                            {{ form.confirm_password }}
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="save btn btn-info btn-block" style="width:100%;" onclick="alert("{{ messages }}")">Sign Up</button>
+                        </div>
+                      
+                    </form>
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
